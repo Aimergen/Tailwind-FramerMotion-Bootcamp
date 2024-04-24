@@ -100,7 +100,22 @@ const Day2 = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <div className="h-screen w-screen bg-[#FEF7EA] text-black">Day 2</div>;
+  return (
+    <div className="h-screen w-screen bg-[#FEF7EA] text-black p-5 grid grid-cols-4 gap-4">
+      {squares.map((square: any) => (
+        <motion.img
+          key={square.id}
+          src={square.src}
+          layout
+          className="rounded-lg h-full w-full object-center"
+          transition={{
+            type: "spring",
+            duration: 5,
+          }}
+        ></motion.img>
+      ))}
+    </div>
+  );
 };
 
 export default Day2;
